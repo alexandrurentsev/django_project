@@ -1,0 +1,16 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обо мне</title>
+</head>
+<body>
+    <h1>Обо мне</h1>
+    <ul>
+        {% for key, value in about_data.items %}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

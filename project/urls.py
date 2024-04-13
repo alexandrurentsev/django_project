@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from project.views import get_default
+from project.views import get_default, get_about, get_item
 
 urlpatterns = [
     path('', get_default),
     path('admin/', admin.site.urls),
+    path('about/', get_about),
+    path('items/<int:number>', get_item),
 ]

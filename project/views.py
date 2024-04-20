@@ -1,6 +1,5 @@
-from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-
+from django.http import HttpRequest, HttpResponse
 
 items = [
     {"id": 1, "name": "Кроссовки abibas", "quantity": 5},
@@ -11,17 +10,11 @@ items = [
 ]
 
 
-def get_default(request):
-    h_1 = "Изучаем django"
-    text = "Автор: Уренцев А.П"
+def get_home_page(request: HttpRequest) -> HttpResponse:
+    return render(request, "home.html")
 
 
-    context = {"h_1": h_1, "text": text}
-
-    return render(request, 'home.html', context)
-
-
-def get_about(request):
+def get_about(request: HttpRequest) -> HttpResponse:
     name = "александр"
     patronymic = "павлович"
     surname = "уренцев"
@@ -36,15 +29,17 @@ def get_about(request):
         "email": email,
     }
 
+    context = {"about_data": about_data}
 
-    context = {'about_data': about_data}
-
-    return render(request, 'about.html', context)
+    return render(request, "about.html", context)
 
 
-def get_item(request, number):
-    try:
-        result = items[number]
-    except:
-        result = f"Товар с id={number} не найден"
-    return result
+def get_item(request: HttpRequest) -> HttpResponse:
+    context = {"items": items}
+
+    return render(request, "items.html", context)
+
+
+def get_item_detail(request: HttpRequest, item_id: int) -> HttpResponse:
+    item = next((item for item in items if item["id"] == item_id), None)
+    return render(request, "item_detail.html", {"item": item})

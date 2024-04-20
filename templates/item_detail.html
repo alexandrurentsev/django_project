@@ -1,0 +1,13 @@
+<!-- item_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <ul>
+    {% if item.quantity > 0 %}
+        <li>{{ item.name }}: {{ item.quantity }}</li>
+    {% else %}
+        <li>{{ item.name }}: Товар отсутствует</li>
+    {% endif %}
+    </ul>
+</body>
+</html>

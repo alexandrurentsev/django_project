@@ -3,7 +3,15 @@
 .venv 
 env/ 
 venv/ 
-ENV/ 
-env.bak/ 
-venv.bak/
+#db#
 db.sqlite3
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+#vscode#
+package-lock.json
+launch.json

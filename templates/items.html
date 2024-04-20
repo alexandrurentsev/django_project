@@ -1,0 +1,12 @@
+<!-- items.html -->
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <ul>
+        <h2>Список товаров</h2>
+        {% for item in items %}
+        <li><a href="{% url 'item_detail' item.id %}">{{ item.name }}</a> - {{ item.quantity|default:"товар отсутствует" }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

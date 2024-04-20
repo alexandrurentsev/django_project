@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Главная{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">Home</a> /
+        <a href="{% url 'list_items' %}">Items</a> /
+        <a href="{% url 'about' %}">About</a>
+    </header>
+
+    {% block content %}{% endblock %}
+</body>
+</html>

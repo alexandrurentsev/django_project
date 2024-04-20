@@ -3,10 +3,10 @@
 <html lang="en">
 <body>
     <ul>
-    {% if item.quantity > 0 %}
-        <li>{{ item.name }}: {{ item.quantity }}</li>
+    {% if item.count > 0 %}
+        <li>{{item.name }} : {{ item.count }} </li>
     {% else %}
-        <li>{{ item.name }}: Товар отсутствует</li>
+        <li>{{item.name}}: Товар отсутствует</li>
     {% endif %}
     </ul>
 </body>

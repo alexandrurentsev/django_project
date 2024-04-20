@@ -1,13 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
-
-items = [
-    {"id": 1, "name": "Кроссовки abibas", "quantity": 5},
-    {"id": 2, "name": "Куртка кожаная", "quantity": 2},
-    {"id": 5, "name": "Coca-cola 1 литр", "quantity": 12},
-    {"id": 7, "name": "Картофель фри", "quantity": 0},
-    {"id": 8, "name": "Кепка", "quantity": 124},
-]
+from main_app.models import Item
 
 
 def get_home_page(request: HttpRequest) -> HttpResponse:
@@ -36,6 +29,7 @@ def get_about(request: HttpRequest) -> HttpResponse:
 
 def get_item(request: HttpRequest) -> HttpResponse:
     # получение всех items
+    items = Item.objects.all()
     context = {"items": items}
 
     return render(request, "items.html", context)
@@ -45,5 +39,5 @@ def get_item_detail(request: HttpRequest, item_id: int) -> HttpResponse:
     """
     Возвращает item по id
     """
-    item = next((item for item in items if item["id"] == item_id), None)
-    return render(request, "item_detail.html", {"item": item})
+    item = Item.objects.filter(id=item_id)
+    return render(request, "item_detail.html", {"item": item[0]})

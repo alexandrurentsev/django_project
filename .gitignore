@@ -15,3 +15,16 @@ media
 #vscode#
 package-lock.json
 launch.json
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+.DS_Store
+*.sqlite3
+media/
+*.pyc
+*.db
+*.pid
+__pycache__

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>{% block title %}Главная{% endblock %}</title>
-</head>
+    <head>
+        <title>{% block title %}Магазин{% endblock %}</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    </head>
 <body>
     <header>
         <a href="{% url 'home' %}">Home</a> /

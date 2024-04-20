@@ -35,11 +35,15 @@ def get_about(request: HttpRequest) -> HttpResponse:
 
 
 def get_item(request: HttpRequest) -> HttpResponse:
+    # получение всех items
     context = {"items": items}
 
     return render(request, "items.html", context)
 
 
 def get_item_detail(request: HttpRequest, item_id: int) -> HttpResponse:
+    """
+    Возвращает item по id
+    """
     item = next((item for item in items if item["id"] == item_id), None)
     return render(request, "item_detail.html", {"item": item})
